@@ -31,11 +31,11 @@ class Server {
     }
 
     routers(){
-        this.app.use(this.personsPath, require('../routers/r-person'));
-        this.app.use(this.questionsPath, require('../routers/r-question'));
-        //this.app.use(this.answersPath, require('../routers/r-answer'));
-       // this.app.use(this.votesPath, require('../routers/r-vote'));
-        this.app.use(this.opAnswersPath, require('../routers/r-opAnswer'));
+        this.app.use(this.personsPath, require('../routes/person.routes'));
+        this.app.use(this.questionsPath, require('../routes/question.routes'));
+        //this.app.use(this.answersPath, require('../routes/answer.routes'));
+       // this.app.use(this.votesPath, require('../routes/vote.routes'));
+        this.app.use(this.opAnswersPath, require('../routes/opAnswer.routes'));
     }
 
     listen(){
