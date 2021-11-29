@@ -2,10 +2,20 @@ const Question = require('../models/question');
 
 const questionGet = async (req,res)=>{
     const {_id, ...data} = req.body;
-     const question = await Question.find();
+     const questions = await Question.find();
                            
-     res.json({question});
+     res.json({questions});
  }
+
+ const questionQuery = async (req,res)=>{
+   const {id}= req.params;
+   const {_id, ...data} = req.body;
+    const question = await Question.findById(id);
+    
+                          
+    res.json({question});
+}
+ 
  
  const questionPost  = async (req,res) => {
          
@@ -43,5 +53,6 @@ const questionGet = async (req,res)=>{
     questionPost,
     questionPut,
     questionDel,
+    questionQuery,
     questionGet
  }

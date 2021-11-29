@@ -6,6 +6,7 @@ const Vote = require('../models/vote');
 
 
 
+
 const emailExits = async (email = '') => {
     const person = await Person.findOne({email});
     if(person){

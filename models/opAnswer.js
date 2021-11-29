@@ -9,10 +9,11 @@ const OpAnswerSchema =  Schema({
         type: Schema.Types.ObjectId,
         ref: 'Question'
     },
-    answer: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Answer'
-    }  ]
+    estado:{
+        type: Boolean,
+        
+    }
+    
 });
 
 OpAnswerSchema.methods.toJSON = function(){

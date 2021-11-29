@@ -7,7 +7,7 @@ class Server {
     
     constructor(){
         this.app = express();
-        this.port = 3000;
+        this.port = process.env.PORT || 3000;
         this.personsPath = '/api/persons';
         this.questionsPath = '/api/questions';
         //this.answersPath = '/api/answers';
@@ -16,7 +16,7 @@ class Server {
 
         this.initDB();
         this.middlewares();
-        this.routers(); 
+        this.routes(); 
     }
 
     async initDB(){
@@ -30,7 +30,7 @@ class Server {
         this.app.use( express.static('public') );
     }
 
-    routers(){
+    routes(){
         this.app.use(this.personsPath, require('../routes/person.routes'));
         this.app.use(this.questionsPath, require('../routes/question.routes'));
         //this.app.use(this.answersPath, require('../routes/answer.routes'));
